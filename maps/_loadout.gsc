@@ -12,6 +12,7 @@ give_loadout()
 	level.player SetActionSlot( 2, "" );
 	level.player SetActionSlot( 3, "altMode" );	// toggles between attached grenade launcher
 	level.player SetActionSlot( 4, "" );
+	precacheitem("dragunov_sp");
 
 	if ( !isdefined( game[ "expectedlevel" ] ) )
 		game[ "expectedlevel" ] = "";
@@ -102,7 +103,7 @@ give_loadout()
 		level.player giveWeapon( "fraggrenade" );
 		level.player giveWeapon( "flash_grenade" );
 		level.player setOffhandSecondaryClass( "flash" );
-		level.player setViewmodel( "viewhands_mw2_udt" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.player switchToWeapon( "m4_grenadier" );
 		level.campaign = "american";
 		return;
@@ -118,7 +119,7 @@ give_loadout()
 		level.player giveWeapon( "c4" );
 		level.player SetActionSlot( 2, "weapon", "c4" );
 		level.player switchToWeapon( "m4_grenadier" );
-		level.player setViewmodel( "viewhands_mw2_udt" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.campaign = "american";
 		return;
 	}
@@ -133,7 +134,7 @@ give_loadout()
 		level.player SetWeaponAmmoStock( "remington700", 10 );
 		level.player setOffhandSecondaryClass( "flash" );
 		level.player switchToWeapon( "remington700" );
-		level.player setViewmodel( "viewhands_sas_woodland" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.campaign = "british";
 		return;
 	}
@@ -153,20 +154,21 @@ give_loadout()
 	if ( level.script == "aftermath" )
 	{
 		level.player takeallweapons();
-		level.player setViewmodel( "viewhands_mw2_udt" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.campaign = "american";
 		return;
 	}
 	
 	if ( level.script == "bog_b" )
 	{
-		level.player giveWeapon( "Beretta" );
+		level.player giveWeapon( "dragunov_sp" );
+		level.player giveMaxAmmo( "dragunov_sp" );
 		level.player giveWeapon( "m4_grenadier" );
 		level.player giveWeapon( "fraggrenade" );
 		level.player giveWeapon( "flash_grenade" );
 		level.player setOffhandSecondaryClass( "flash" );
 		level.player switchToWeapon( "m4_grenadier" );
-		level.player setViewmodel( "viewhands_mw2_udt" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.campaign = "american";
 		return;
 	}
@@ -179,7 +181,7 @@ give_loadout()
 		level.player giveWeapon( "flash_grenade" );
 		level.player setOffhandSecondaryClass( "flash" );
 		level.player switchToWeapon( "m4_grenadier" );
-		level.player setViewmodel( "viewhands_mw2_udt" );
+		level.player setViewmodel( "viewmodel_base_viewhands" );
 		level.campaign = "american";
 		return;
 	}
@@ -207,15 +209,14 @@ give_loadout()
 	{
 		level.player giveWeapon( "m14_scoped_silencer" );
 		level.player givemaxammo( "m14_scoped_silencer" );
-		level.player giveWeapon( "m4_silencer_acog" );
-		level.player givemaxammo( "m4_silencer_acog" );
+		level.player giveWeapon( "usp_silencer" );
+		level.player givemaxammo( "usp_silencer" );
 		// level.player giveWeapon( "claymore" );
 		// level.player givemaxammo( "claymore" );
 		level.player giveWeapon( "fraggrenade" );
 		// level.player SetActionSlot( 4, "weapon", "claymore" );
-		level.player switchToWeapon( "m4_silencer_acog" );
+		level.player switchToWeapon( "m14_scoped_silencer" );
 		level.player setViewmodel( "viewhands_marine_sniper" );
-		//level.player setViewmodel( "viewhands_shadow_co" );
 		level.campaign = "british";
 		return;
 	}
